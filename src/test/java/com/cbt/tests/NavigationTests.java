@@ -13,66 +13,37 @@ public class NavigationTests {
     }
 
     public static void testChrome(){
-        WebDriver driver = getDriver("chrome");
-        driver.get("https://google.com");
-        String titleGoogle1 = driver.getTitle();
-
-        driver.navigate().to("https://etsy.com");
-        String titleEtsy1 = driver.getTitle();
-
-        driver.navigate().back();
-        String titleGoogle2 = driver.getTitle();
-
-        verifyEquals(titleGoogle1,titleGoogle2);
-
-        driver.navigate().forward();
-        String titleEtsy2 = driver.getTitle();
-
-        verifyEquals(titleEtsy1,titleEtsy2);
-
-        driver.close();
+        mainTest("chrome");
     }
 
     public static void testFireFox(){
-        WebDriver driver = getDriver("firefox");
-        driver.get("https://google.com");
-        String titleGoogle1 = driver.getTitle();
-
-        driver.navigate().to("https://etsy.com");
-        String titleEtsy1 = driver.getTitle();
-
-        driver.navigate().back();
-        String titleGoogle2 = driver.getTitle();
-
-        verifyEquals(titleGoogle1,titleGoogle2);
-
-        driver.navigate().forward();
-        String titleEtsy2 = driver.getTitle();
-
-        verifyEquals(titleEtsy1,titleEtsy2);
-
-        driver.close();
+        mainTest("firefox");
     }
 
     public static void testSafari(){
-        WebDriver driver = getDriver("safari");
+       mainTest("safari");
+    }
+
+    public static void mainTest(String Browser) {
+        try {
+        WebDriver driver = getDriver(Browser);
         driver.get("https://google.com");
         String titleGoogle1 = driver.getTitle();
-
+        Thread.sleep(2000);
         driver.navigate().to("https://etsy.com");
         String titleEtsy1 = driver.getTitle();
-
         driver.navigate().back();
         String titleGoogle2 = driver.getTitle();
-
+        Thread.sleep(2000);
         verifyEquals(titleGoogle1,titleGoogle2);
-
         driver.navigate().forward();
         String titleEtsy2 = driver.getTitle();
-
+        Thread.sleep(2000);
         verifyEquals(titleEtsy1,titleEtsy2);
-
         driver.close();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 }
