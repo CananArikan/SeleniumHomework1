@@ -1,7 +1,6 @@
 package com.cbt.tests;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import static com.cbt.utilities.BrowserFactory.getDriver;
 
