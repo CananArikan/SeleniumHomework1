@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import static com.cbt.utilities.BrowserFactory.getDriver;
 
+
 public class TitleVerification2 {
     public static void main(String[] args) throws Exception {
         List<String> urls = Arrays.asList("https://luluandgeorgia.com",
